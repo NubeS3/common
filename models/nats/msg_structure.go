@@ -7,8 +7,10 @@ const (
 	Resolve
 )
 
+type ReqType int
+
 type Msg struct {
-	ReqType   string  `json:"req_type"`
+	ReqType   ReqType `json:"req_type"`
 	Data      string  `json:"data"`
 	ExtraData *string `json:"extra_data,omitempty"`
 }
