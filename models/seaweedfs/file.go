@@ -7,7 +7,7 @@ import (
 )
 
 func UploadFile(filename string, size int64, reader io.Reader) (*goseaweedfs.FilePart, error) {
-	meta, err := sw.Upload(reader, filename, size, "", "")
+	meta, err := Sw.Upload(reader, filename, size, "", "")
 	if err != nil {
 		return nil, &utils.ModelError{
 			Msg:     err.Error(),
@@ -19,7 +19,7 @@ func UploadFile(filename string, size int64, reader io.Reader) (*goseaweedfs.Fil
 }
 
 func DownloadFile(id string, callback func(reader io.Reader) error) error {
-	_, err := sw.Download(id, nil, callback)
+	_, err := Sw.Download(id, nil, callback)
 
 	if err != nil {
 		return &utils.ModelError{

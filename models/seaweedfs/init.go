@@ -1,3 +1,5 @@
+//+build
+
 package seaweedfs
 
 import (
@@ -8,7 +10,7 @@ import (
 )
 
 var (
-	sw *goseaweedfs.Seaweed
+	Sw *goseaweedfs.Seaweed
 )
 
 const (
@@ -20,7 +22,7 @@ func InitFs() (func(), error) {
 	masterUrl := config.Conf.SeaweedMasterUrl
 
 	var err error
-	sw, err = goseaweedfs.NewSeaweed(masterUrl, []string{}, CHUNK_SIZE, &http.Client{Timeout: 5 * time.Minute})
+	Sw, err = goseaweedfs.NewSeaweed(masterUrl, []string{}, CHUNK_SIZE, &http.Client{Timeout: 5 * time.Minute})
 
 	if err != nil {
 		return nil, err
@@ -30,7 +32,7 @@ func InitFs() (func(), error) {
 }
 
 func cleanUp() {
-	if sw != nil {
-		_ = sw.Close()
+	if Sw != nil {
+		_ = Sw.Close()
 	}
 }

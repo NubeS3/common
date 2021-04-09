@@ -1,3 +1,5 @@
+//+build
+
 package stan
 
 import (
@@ -19,14 +21,14 @@ const (
 )
 
 var (
-	sc stan.Conn
+	Sc stan.Conn
 )
 
 func InitStan() (func(), error) {
 	url := config.Conf.StanUrl
 
 	var err error
-	sc, err = stan.Connect("nats-streaming", "nubes3", stan.NatsURL("nats://"+url))
+	Sc, err = stan.Connect("nats-streaming", "nubes3", stan.NatsURL("nats://"+url))
 	if err != nil {
 		return nil, err
 	}
@@ -35,7 +37,7 @@ func InitStan() (func(), error) {
 }
 
 func cleanUp() {
-	if sc != nil {
-		_ = sc.Close()
+	if Sc != nil {
+		_ = Sc.Close()
 	}
 }

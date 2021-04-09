@@ -1,3 +1,5 @@
+//+build
+
 package arangodb
 
 import (

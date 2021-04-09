@@ -1,3 +1,5 @@
+//+build
+
 package arangodb
 
 type Folder struct {

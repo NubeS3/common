@@ -1,3 +1,4 @@
+//+build
 package nats
 
 import (
@@ -19,14 +20,14 @@ const (
 )
 
 var (
-	nc *nats.Conn
+	Nc *nats.Conn
 )
 
 func InitNats() (func(), error) {
 	url := config.Conf.NatsUrl
 
 	var err error
-	nc, err = nats.Connect(url)
+	Nc, err = nats.Connect(url)
 	if err != nil {
 		return nil, err
 	}
@@ -35,7 +36,7 @@ func InitNats() (func(), error) {
 }
 
 func clearUp() {
-	if nc != nil {
-		nc.Close()
+	if Nc != nil {
+		Nc.Close()
 	}
 }
