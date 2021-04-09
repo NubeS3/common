@@ -1,4 +1,5 @@
-//+build
+//+build windows linux
+
 package nats
 
 import (
