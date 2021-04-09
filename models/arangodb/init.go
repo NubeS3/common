@@ -2,7 +2,7 @@ package arangodb
 
 import (
 	"context"
-	"github.com/Nubes3/common-components/config"
+	"github.com/Nubes3/common/config"
 	arangoDriver "github.com/arangodb/go-driver"
 	arangoHttp "github.com/arangodb/go-driver/http"
 	"time"

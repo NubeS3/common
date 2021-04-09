@@ -1,7 +1,7 @@
 package seaweedfs
 
 import (
-	"github.com/Nubes3/common-components/utils"
+	"github.com/Nubes3/common/utils"
 	"github.com/linxGnu/goseaweedfs"
 	"io"
 )

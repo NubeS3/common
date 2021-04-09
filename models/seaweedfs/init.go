@@ -1,7 +1,7 @@
 package seaweedfs
 
 import (
-	"github.com/Nubes3/common-components/config"
+	"github.com/Nubes3/common/config"
 	"github.com/linxGnu/goseaweedfs"
 	"net/http"
 	"time"

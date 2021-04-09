@@ -1,7 +1,7 @@
 package nats
 
 import (
-	"github.com/Nubes3/common-components/config"
+	"github.com/Nubes3/common/config"
 	nats "github.com/nats-io/nats.go"
 )
 

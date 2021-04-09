@@ -1,7 +1,7 @@
 package arangodb
 
 import (
-	"github.com/Nubes3/common-components/utils"
+	"github.com/Nubes3/common/utils"
 	"time"
 )
 

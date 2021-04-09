@@ -2,7 +2,7 @@ package utils
 
 import (
 	"errors"
-	"github.com/Nubes3/nubes3-user-service/pkg/config"
+	"github.com/Nubes3/common/config"
 	"github.com/dgrijalva/jwt-go"
 	"time"
 )
@@ -21,7 +21,7 @@ func CreateToken(oid string) (string, error) {
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, userClaims)
-	signed, err := token.SignedString([]byte(config.Conf.Secret))
+	signed, err := token.SignedString([]byte(config.Conf.JwtSecret))
 	if err != nil {
 		return "", err
 	}
@@ -34,6 +34,6 @@ func ParseToken(authToken string, claims *UserClaims) (*jwt.Token, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, errors.New("wrong method")
 		}
-		return []byte(config.Conf.Secret), nil
+		return []byte(config.Conf.JwtSecret), nil
 	})
 }

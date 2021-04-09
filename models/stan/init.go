@@ -1,7 +1,7 @@
 package stan
 
 import (
-	"github.com/Nubes3/common-components/config"
+	"github.com/Nubes3/common/config"
 	stan "github.com/nats-io/stan.go"
 )
 

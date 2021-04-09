@@ -1,6 +1,6 @@
 package arangodb
 
-import "github.com/Nubes3/common-components/utils"
+import "github.com/Nubes3/common/utils"
 
 type Permission int
 
