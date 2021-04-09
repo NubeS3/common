@@ -13,15 +13,14 @@ import (
 const ContextExpiredTime = 30
 
 var (
-	arangoConnection arangoDriver.Connection
-	arangoClient     arangoDriver.Client
-	arangoDb         arangoDriver.Database
-	userCol          arangoDriver.Collection
+	ArangoConnection arangoDriver.Connection
+	ArangoClient     arangoDriver.Client
+	ArangoDb         arangoDriver.Database
 )
 
 func InitArango() {
 	var err error
-	arangoConnection, err = arangoHttp.NewConnection(arangoHttp.ConnectionConfig{
+	ArangoConnection, err = arangoHttp.NewConnection(arangoHttp.ConnectionConfig{
 		Endpoints: []string{config.Conf.ArangoHost},
 	})
 
@@ -29,8 +28,8 @@ func InitArango() {
 		panic(err)
 	}
 
-	arangoClient, err = arangoDriver.NewClient(arangoDriver.ClientConfig{
-		Connection:     arangoConnection,
+	ArangoClient, err = arangoDriver.NewClient(arangoDriver.ClientConfig{
+		Connection:     ArangoConnection,
 		Authentication: arangoDriver.BasicAuthentication(config.Conf.ArangoUser, config.Conf.ArangoPassword),
 	})
 
@@ -41,13 +40,13 @@ func InitArango() {
 	ctx, cancel := context.WithTimeout(context.Background(), ContextExpiredTime*time.Second)
 	defer cancel()
 
-	dbExist, err := arangoClient.DatabaseExists(ctx, "nubes3")
+	dbExist, err := ArangoClient.DatabaseExists(ctx, "nubes3")
 	if err != nil {
 		panic(err)
 	}
 
 	if !dbExist {
-		arangoDb, _ = arangoClient.CreateDatabase(ctx, "nubes3", &arangoDriver.CreateDatabaseOptions{
+		ArangoDb, _ = ArangoClient.CreateDatabase(ctx, "nubes3", &arangoDriver.CreateDatabaseOptions{
 			Users: []arangoDriver.CreateDatabaseUserOptions{
 				{
 					UserName: config.Conf.ArangoUser,
@@ -56,6 +55,6 @@ func InitArango() {
 			},
 		})
 	} else {
-		arangoDb, _ = arangoClient.Database(ctx, "nubes3")
+		ArangoDb, _ = ArangoClient.Database(ctx, "nubes3")
 	}
 }
