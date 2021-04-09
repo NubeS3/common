@@ -8,7 +8,9 @@ import (
 	"github.com/Nubes3/common/models/stan"
 )
 
-func InitCoreComponents(initArango, initSeaweedfs, initStan, initNats bool) {
+func InitCoreComponents(initArango, initSeaweedfs, initStan, initNats bool) []func() {
+	cleanUps := []func(){}
+
 	if initArango {
 		arangodb.InitArango()
 	}
@@ -17,20 +19,25 @@ func InitCoreComponents(initArango, initSeaweedfs, initStan, initNats bool) {
 		if err != nil {
 			panic(err)
 		}
-		defer clean()
+
+		cleanUps = append(cleanUps, clean)
 	}
 	if initNats {
 		clean, err := nats.InitNats()
 		if err != nil {
 			panic(err)
 		}
-		defer clean()
+
+		cleanUps = append(cleanUps, clean)
 	}
 	if initStan {
 		clean, err := stan.InitStan()
 		if err != nil {
 			panic(err)
 		}
-		defer clean()
+
+		cleanUps = append(cleanUps, clean)
 	}
+
+	return cleanUps
 }
