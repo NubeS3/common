@@ -1,4 +1,4 @@
-module github.com/Nubes3/common-components
+module github.com/Nubes3/common
 
 go 1.16
 
