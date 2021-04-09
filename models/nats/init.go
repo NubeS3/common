@@ -8,16 +8,16 @@ import (
 )
 
 const (
-	mailSubj              = "nubes3_mail"
-	uploadFileSubj        = "nubes3_upload_file"
-	downloadFileSubj      = "nubes3_download_file"
-	stagingFileSubj       = "nubes3_staging_file"
-	uploadFileSuccessSubj = "nubes3_upload_success_file"
-	userSubj              = "nubes3_user"
-	bucketSubj            = "nubes3_bucket"
-	folderSubj            = "nubes3_folder"
-	accessKeySubj         = "nubes3_accessKey"
-	keyPairSubj           = "nubes3_keyPair"
+	MailSubj              = "nubes3_mail"
+	UploadFileSubj        = "nubes3_upload_file"
+	DownloadFileSubj      = "nubes3_download_file"
+	StagingFileSubj       = "nubes3_staging_file"
+	UploadFileSuccessSubj = "nubes3_upload_success_file"
+	UserSubj              = "nubes3_user"
+	BucketSubj            = "nubes3_bucket"
+	FolderSubj            = "nubes3_folder"
+	AccessKeySubj         = "nubes3_accessKey"
+	KeyPairSubj           = "nubes3_keyPair"
 )
 
 var (
