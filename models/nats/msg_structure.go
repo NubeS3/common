@@ -12,15 +12,15 @@ const (
 type ReqType int
 
 type Msg struct {
-	ReqType   ReqType `json:"req_type"`
-	Data      string  `json:"data"`
-	ExtraData *string `json:"extra_data,omitempty"`
+	ReqType   ReqType  `json:"req_type"`
+	Data      string   `json:"data"`
+	ExtraData []string `json:"extra_data"`
 }
 
 type MsgResponse struct {
-	IsErr     bool   `json:"is_err"`
-	Data      string `json:"data"`
-	ExtraData string `json:"extra_data"`
+	IsErr     bool     `json:"is_err"`
+	Data      string   `json:"data"`
+	ExtraData []string `json:"extra_data"`
 }
 
 type ErrMsg struct {
