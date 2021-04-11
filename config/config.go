@@ -2,7 +2,9 @@
 
 package config
 
-import "github.com/spf13/viper"
+import (
+	"github.com/spf13/viper"
+)
 
 type Config struct {
 	ArangoHost       string `mapstructure:"arango_host"`
@@ -20,6 +22,8 @@ func init() {
 	viper.SetConfigName("config") // name of config file (without extension)
 	viper.SetConfigType("json")
 	viper.AddConfigPath(".")
+
+	viper.ReadInConfig()
 
 	err := viper.Unmarshal(&Conf)
 	if err != nil {
