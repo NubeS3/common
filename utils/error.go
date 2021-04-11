@@ -8,6 +8,7 @@ const (
 	NotFound
 	Invalid
 	FsError
+	Expired
 	Other
 )
 
