@@ -7,6 +7,7 @@ import "github.com/Nubes3/common/utils"
 const (
 	GetById = iota
 	Resolve
+	Check
 )
 
 type ReqType int
