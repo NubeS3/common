@@ -9,6 +9,9 @@ const (
 	Resolve
 	Check
 	GetByParams
+	Add
+	Update
+	Remove
 )
 
 type ReqType int
