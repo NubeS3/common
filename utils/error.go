@@ -9,6 +9,7 @@ const (
 	Invalid
 	FsError
 	Expired
+	Timeout
 	Other
 )
 
