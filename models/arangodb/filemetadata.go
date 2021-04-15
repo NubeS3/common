@@ -22,7 +22,7 @@ type FileMetadata struct {
 	ExpiredDate  time.Time `json:"expired_date"`
 }
 
-type fileMetadata struct {
+type FileMetadataRes struct {
 	FileId   string `json:"fid"`
 	BucketId string `json:"bucket_id"`
 	Path     string `json:"path"`
