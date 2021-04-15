@@ -8,6 +8,7 @@ const (
 	GetById = iota
 	Resolve
 	Check
+	GetByParams
 )
 
 type ReqType int
